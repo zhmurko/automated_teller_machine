@@ -3,33 +3,50 @@ Given /^I come to the terminal$/ do
 end
 
 Given /^I insert the card$/ do
-  @terminal.type_command("INSERT")
+  @terminal.output.should == "INIT"
+  @terminal.accept "INSERT"
 end
 
-Given /^I enter pin (\d+)$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given /^I enter pin (\d+)$/ do |pin|
+  @terminal.output.should == "WAIT_PIN"
+  @terminal.accept pin
 end
 
 When /^I ask for balance$/ do
-  pending # express the regexp above with the code you wish you had
+  @terminal.output.should == "MENU"
+  @terminal.accept "BALANCE" 
 end
 
-Then /^the result is (\d+) credits$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^the balance is (\d+) credits$/ do | sum |
+  @terminal.state.should == "BALANCE"
+  @terminal.output.should == sum.to_i
 end
 
-When /^I ask for (\d+) credits$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^I ask for (\d+) credits$/ do | sum |
+  @terminal.output.should == "MENU"
+  @terminal.accept sum.to_i
 end
 
-Then /^I withdraw (\d+) credits$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^I get cash$/ do 
+  @terminal.state.should == "CASH"
+  @terminal.output.should == "CASH"
 end
 
-When /^I exit the termimal$/ do
-  pending # express the regexp above with the code you wish you had
+When /^I return back$/ do
+  @terminal.accept "BACK"
+  @terminal.state.should == "MENU"
+  @terminal.output.should == "MENU"
+end
+
+When /^I exit the terminal$/ do
+  @terminal.state.should == "MENU"
+  @terminal.accept "EXIT"
 end
 
 Then /^I got the card back$/ do
-  pending # express the regexp above with the code you wish you had
+  @terminal.state.should == "BYE"
+end
+
+Then /^I see message "(.*?)"$/ do | message_text |
+  @terminal.output.should == message_text
 end

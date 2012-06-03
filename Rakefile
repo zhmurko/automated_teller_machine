@@ -8,8 +8,6 @@ end
 
 require_local 'lib'
 
-task :default => :test
-
 # load Cucumber tasks
 begin
   require 'cucumber'
@@ -43,5 +41,3 @@ RSpec::Core::RakeTask.new(:coverage) do |t|
   t.rcov = true
   t.rcov_opts = ['--exclude', 'spec']
 end
-
-task :test 

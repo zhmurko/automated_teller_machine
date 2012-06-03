@@ -1,2 +1,2 @@
-ruby lib\atm.rb
+ruby atm.rb
 pause
