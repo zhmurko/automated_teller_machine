@@ -4,8 +4,8 @@ class State
     "INIT"      => [ "WAIT_PIN", "BYE" ],
     "WAIT_PIN"  => [ "MENU", "BYE" ],
     "MENU"      => [ "CASH", "BALANCE", "BYE" ],
-    "BALANCE"   => [ "MENU", "CASH", "BALANCE", "BYE" ],
-    "CASH"      => [ "MENU", "CASH", "BALANCE", "BYE" ],
+    "BALANCE"   => [ "MENU", "BYE" ],
+    "CASH"      => [ "MENU", "BALANCE", "BYE" ],
     "BLOCK"     => [ "BYE" ]
   }
   
@@ -14,6 +14,11 @@ class State
   def initialize(name = "INIT")
     @value = name
     @updated_at = Time.now
+  end
+  
+  def value=(name)
+    @value = name
+    @updated_at = Time.now  unless time_expired?
   end
     
   def possible_next_states

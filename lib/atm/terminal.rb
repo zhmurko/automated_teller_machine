@@ -28,10 +28,10 @@ class Terminal
   end
 
   def set_output
-    @output = case @state.value
-      when "BALANCE"
+    @output = case 
+      when state.balance? && errors.empty?
          @card_reader.card.balance
-      when "BLOCK"
+      when state.block?
         @block_reason
       else
         error_message = errors

@@ -5,7 +5,7 @@ Automated Teller Machine
 Requirements:
   Ruby 1.9.3 
     Download installation file from http://rubyinstaller.org/downloads/
-    Verify that path to ruby executables was added to system variable PATH during installation.
+    During install process select option to add the location of ruby executables to system variable PATH
 
 Additions:
  Bundler 1.1 ruby packages manager for test suite
@@ -28,7 +28,7 @@ Tests:
 	4. Type ansicon.exe -h and you will get the following:
 		D:\Data\ansicon\x86>ansicon.exe -h
 		ANSICON by Jason Hood.
-		Version 1.53 (12 June, 2012).  Freeware.
+		Version 1.52 (02 June, 2012).  Freeware.
 		http://ansicon.adoxa.cjb.net/
 	5. Execute 'ansicon.exe -i' to install and add ansicon to your Windows
 	6. Run cucumber test and you should get the colored output result on Windows
