@@ -1,6 +1,0 @@
-The application is a prototype of well-known ATM equipment. The work process is highly simplified and includes only base operations. 
-
-Installaion:
-Ruby 1.9.2
-
-gems RSpec, Cucumber 

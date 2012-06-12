@@ -12,18 +12,24 @@ class Command
     end
   end
   
-  def positive_integer?
-    value = @text.to_i
-    value.is_a?(Fixnum) && value > 0  
+  def valid?
+    valid_command? || positive_integer?
   end
 
   def valid_command?
     VALID_COMMANDS.include? @text
   end
-  
-  
-  def accepted?
-    valid_command? || positive_integer?
+
+  def positive_integer?
+    only_numbers? && positive?
   end
   
+  def positive?
+    @text.to_i > 0  
+  end
+  
+  def only_numbers?
+    @text.to_s =~ /\A\d+\Z/
+  end
+    
 end

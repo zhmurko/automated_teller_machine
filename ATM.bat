@@ -1,2 +1,1 @@
 ruby atm.rb
-pause
