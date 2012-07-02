@@ -1,3 +1,5 @@
+This code participated in Aquasoft Clean Code Cup 2012
+
 Automated Teller Machine
   The application is a prototype of well-known ATM equipment. The work process is highly simplified and includes only base operations. 
   Start work with ATM inserting your bank card by command INSERT, enter an appropriate card's PIN (default is 1234). It's available to check current card's balance by command BALANCE or obtain some cash by entering correct sum. Return to the menu by command BACK. Quit from the terminal by command EXIT.
